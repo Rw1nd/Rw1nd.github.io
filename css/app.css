@@ -102,7 +102,7 @@ img.emoji {
     padding: 8px 12px; }
 
 main.index {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 15px; }
   main.index article {
@@ -156,7 +156,7 @@ main.archive {
       color: #5badf0; }
 
 main.post {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 15px; }
   main.post article {
@@ -186,7 +186,7 @@ main.post {
     main.post .article-entry > h6:hover .header-anchor {
       display: inline; }
     main.post .article-entry img {
-      max-width: 700px; }
+      max-width: 900px; }
   main.post .article-title {
     margin: 0;
     text-align: center;
@@ -215,7 +215,7 @@ main.post {
     color: #666; }
 
 .page {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 15px;
   padding-top: 90px;
@@ -258,13 +258,13 @@ main.post {
     text-transform: capitalize; }
 
 .code-block, .article-entry pre, .article-entry .highlight {
-  background: #2d2d2d;
+  background: #fffaf0;
   margin: 1.6rem 0;
-  padding: 3rem 1.8rem;
+  padding: 0rem 0rem;
   border-style: solid;
   border-width: 1px 0;
   overflow: auto;
-  color: #ccc;
+  color: #1a1a1a;
   line-height: 20px; }
 
 .line-numbers, .article-entry .highlight .gutter pre {
@@ -384,11 +384,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #6699cc; }
+  color: #0099ff; }
 
 pre .keyword,
 pre .javascript .function {
-  color: #cc99cc; }
+  color: #0099ff; }
 
 .back-to-home {
   position: absolute;
