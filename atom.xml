@@ -3,11 +3,11 @@
   <title>RWind</title>
   
   
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="https://rw1nd.github.io/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://rw1nd.github.io/"/>
   <updated>2020-11-26T05:51:04.511Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://rw1nd.github.io/</id>
   
   <author>
     <name>RWind</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用coq证明fibonacci数列迭代和递归两种实现形式等价</title>
-    <link href="http://yoursite.com/2020/11/26/coq-fibonacci-proof/"/>
-    <id>http://yoursite.com/2020/11/26/coq-fibonacci-proof/</id>
+    <link href="https://rw1nd.github.io/2020/11/26/coq-fibonacci-proof/"/>
+    <id>https://rw1nd.github.io/2020/11/26/coq-fibonacci-proof/</id>
     <published>2020-11-26T04:58:47.000Z</published>
     <updated>2020-11-26T05:51:04.511Z</updated>
     
@@ -38,16 +38,16 @@
     
     
     
-    <category term="coq" scheme="http://yoursite.com/tags/coq/"/>
+    <category term="coq" scheme="https://rw1nd.github.io/tags/coq/"/>
     
-    <category term="证明" scheme="http://yoursite.com/tags/证明/"/>
+    <category term="证明" scheme="https://rw1nd.github.io/tags/证明/"/>
     
   </entry>
   
   <entry>
     <title>x-nuca2020-babyv8</title>
-    <link href="http://yoursite.com/2020/11/23/nuca2020-babyv8/"/>
-    <id>http://yoursite.com/2020/11/23/nuca2020-babyv8/</id>
+    <link href="https://rw1nd.github.io/2020/11/23/nuca2020-babyv8/"/>
+    <id>https://rw1nd.github.io/2020/11/23/nuca2020-babyv8/</id>
     <published>2020-11-23T10:59:59.000Z</published>
     <updated>2020-11-23T13:06:13.792Z</updated>
     
@@ -63,16 +63,16 @@
     
     
     
-    <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+    <category term="CTF" scheme="https://rw1nd.github.io/tags/CTF/"/>
     
-    <category term="V8" scheme="http://yoursite.com/tags/V8/"/>
+    <category term="V8" scheme="https://rw1nd.github.io/tags/V8/"/>
     
   </entry>
   
   <entry>
     <title>My blog</title>
-    <link href="http://yoursite.com/2020/10/22/My-blog/"/>
-    <id>http://yoursite.com/2020/10/22/My-blog/</id>
+    <link href="https://rw1nd.github.io/2020/10/22/My-blog/"/>
+    <id>https://rw1nd.github.io/2020/10/22/My-blog/</id>
     <published>2020-10-22T04:36:59.000Z</published>
     <updated>2020-10-22T05:36:25.309Z</updated>
     
@@ -88,7 +88,7 @@
     
     
     
-    <category term="Misc" scheme="http://yoursite.com/tags/Misc/"/>
+    <category term="Misc" scheme="https://rw1nd.github.io/tags/Misc/"/>
     
   </entry>
   
