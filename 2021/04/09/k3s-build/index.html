@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>k3s_build | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<link rel="alternate" href="/atom.xml" title="RWind" type="application/atom+xml">
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">feed</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2021/04/09/k3s-build/">k3s_build</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 09 2021</p>
+  </section>
+
+  <section class="article-entry">
+    <p>前一段时间给实验室的服务器搞了一套k8s，但是导师说这一套东西太“重”了，于是打算换一个轻量级的。这几天刚好看到k3s这个东西，很轻量，于是尝试一下这套方案。</p>
+<p>搭建非常简单。一条命令直接安装：</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -</span><br></pre></td></tr></table></figure></p>
+<p>rancher管理平台搭建也很方便，直接docker pull就行：</p>
+<p><a href="https://hub.docker.com/r/rancher/rancher/tags?page=1&amp;ordering=last_updated" target="_blank" rel="noopener">根据服务器CPU的架构不同选择不同的版本</a>， 例如我这里使用arm版本的：</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rancher/rancher:v2.5-9b0058c0329f7de1527852e03c92a4a6b3ba4d10-linux-arm64</span><br></pre></td></tr></table></figure></p>
+<p>之后根据官方文档中的命令运行容器：</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 &lt;IMAGE ID&gt;</span><br></pre></td></tr></table></figure></p>
+<p>浏览器访问<a href="https://localhost" target="_blank" rel="noopener">https://localhost</a>就可以访问了。</p>
+<p>参考资料：</p>
+<p><a href="https://k3s.io/" target="_blank" rel="noopener">https://k3s.io/</a></p>
+<p><a href="https://rancher.com/quick-start/" target="_blank" rel="noopener">https://rancher.com/quick-start/</a></p>
+
+  </section>
+</article>
+
+  
+
+  
+</main>
+
+</body>
+</html>
