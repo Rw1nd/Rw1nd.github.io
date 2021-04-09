@@ -6,7 +6,7 @@
   <link href="https://rw1nd.github.io/atom.xml" rel="self"/>
   
   <link href="https://rw1nd.github.io/"/>
-  <updated>2021-03-13T05:29:25.678Z</updated>
+  <updated>2021-04-09T14:59:58.140Z</updated>
   <id>https://rw1nd.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>$\lambda$表达式中的$\alpha$-转换</title>
+    <link href="https://rw1nd.github.io/2021/04/07/alpha-conversion/"/>
+    <id>https://rw1nd.github.io/2021/04/07/alpha-conversion/</id>
+    <published>2021-04-07T15:53:39.000Z</published>
+    <updated>2021-04-09T14:59:58.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>$\alpha$-转换是$\lambda$表达式中常用的一种转换，通常用于解决变量名称冲突问题。比如：</p><p>$$(\lambda x.\ (f\ x)) [(\lambda y. x-y)/f]$$</p><p>这种表达式，如果直接进行替换结果会是</p><p>$$\lambda x.\ ((\lambda y. x-y)\ x) = \lambda x.\ x-x $$</p><p>结果将和预期的结果不一致。类似</p><p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">x-y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>变成了</p><p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">x-x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>显然变量名产生了冲突。</p><p>为了解决这个问题，可以将变量名称进行改变。为了形式化描述，先定义一些概念。</p><p>$$\lambda x. x - y $$</p><p>其中x是bound variable，y是free variable。</p><p>$$FV(t) 表示term\ t中的free\ variable集合$$</p><p>$$FV(x) = \{x\}$$</p><p>$$FV(\lambda x.\ t) = {FV(t) \backslash \{x\}}$$</p><p>$$FV(M\ N) = FV(M) \cup FV(N)$$</p><p>例如：</p><p>$$FV((\lambda x.\ x-y)\ x) \ =  FV(\lambda x.\ x-y) \cup FV(x) \ = (FV(x-y) \backslash  \{x\}) \cup \{x\} \ = \{y\} \cup \{x\} \ = \{x,y\} $$</p><p>那么$(\lambda y. \ M)[N/x]$可以根据bound的变量y是否在FV(N)中决定是否要进行变量名称的改变：</p><p>$$(\lambda y. \ M)[N/x] = \lambda y.(M[N/x]),\ if\ y \notin \ FV(N)$$</p><p>$$(\lambda y. M)[N/x] = \lambda z.(M[z/y][N/x]),\ if\ y \in FV(N)\ and\ z\ is\ unused$$</p><p>例如：</p><p>$$(\lambda y.\ \lambda x. \ x-y)x \ = (\lambda x. \ x-y)[x/y]$$</p><p>此时 $x \in FV(x)$ 需要进行$\alpha$-转换，所以</p><p>$$(\lambda x. \ x-y)[x/y] = \lambda\ z.((x-y)[z/x][x/y]) \ = \lambda z.\ ((z-y)[x/y]) \ = \lambda z. \ z-x$$</p><p>参考资料：</p><p><a href="https://cs.nju.edu.cn/hongjin/teaching/semantics/index.htm" target="_blank" rel="noopener">Formal Semantics of Programming Languages</a></p><p><a href="https://www.cis.upenn.edu/~bcpierce/tapl/" target="_blank" rel="noopener">Types and Programming Languages</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;$\alpha$-转换是$\lambda$表达式中常用的一种转换，通常用于解决变量名称冲突问题。比如：&lt;/p&gt;
+&lt;p&gt;$$(\lambda x.\ (f\ x)) [(\lambda y. x-y)/f]$$&lt;/p&gt;
+&lt;p&gt;这种表达式，如果直接进行替换结果会是&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    
+    <category term="coq" scheme="https://rw1nd.github.io/tags/coq/"/>
+    
+    <category term="证明" scheme="https://rw1nd.github.io/tags/证明/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOs虚拟机折腾k8s</title>
