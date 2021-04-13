@@ -36,9 +36,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
   </entry>
   
@@ -62,9 +62,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
     <category term="k3s" scheme="https://rw1nd.github.io/tags/k3s/"/>
     
@@ -124,9 +124,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
     <category term="k8s" scheme="https://rw1nd.github.io/tags/k8s/"/>
     
@@ -244,14 +244,14 @@
     <link href="https://rw1nd.github.io/2020/10/22/My-blog/"/>
     <id>https://rw1nd.github.io/2020/10/22/My-blog/</id>
     <published>2020-10-22T04:36:59.000Z</published>
-    <updated>2020-10-22T05:36:25.309Z</updated>
+    <updated>2021-04-13T07:54:25.099Z</updated>
     
-    <content type="html"><![CDATA[<p>This blog is just used to record my daily study.</p>]]></content>
+    <content type="html"><![CDATA[<p>此blog记录我的日常学习&amp;折腾&amp;想法</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;This blog is just used to record my daily study.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;此blog记录我的日常学习&amp;amp;折腾&amp;amp;想法&lt;/p&gt;
 </summary>
       
     
