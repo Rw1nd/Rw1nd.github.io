@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>hexo deploy时TypeError [ERR_INVALID_ARG_TYPE]解决 | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<link rel="alternate" href="/atom.xml" title="RWind" type="application/atom+xml">
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">feed</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2021/06/02/hexo-git-error/">hexo deploy时TypeError [ERR_INVALID_ARG_TYPE]解决</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">June 02 2021</p>
+  </section>
+
+  <section class="article-entry">
+    <p>前几天升级了一波系统，xcode command line tools也跟着升级了一波。今天写blog时发现hexo出现了问题。</p>
+<p>先是报</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.64.dylib</span><br></pre></td></tr></table></figure></p>
+<p>重新安装了一遍nodejs，之后在deploy时又出现</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The "mode" argument must be integer. Received an instance of Object</span><br></pre></td></tr></table></figure></p>
+<p>查询<a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">hexo文档</a>后发现需要将nodejs版本降回12。</p>
+<p>降回后解决。</p>
+
+  </section>
+</article>
+
+  
+
+  
+</main>
+
+</body>
+</html>

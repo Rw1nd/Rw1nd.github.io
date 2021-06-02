@@ -6,7 +6,7 @@
   <link href="https://rw1nd.github.io/atom.xml" rel="self"/>
   
   <link href="https://rw1nd.github.io/"/>
-  <updated>2021-06-02T04:33:16.697Z</updated>
+  <updated>2021-06-02T10:56:45.076Z</updated>
   <id>https://rw1nd.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo deploy时TypeError [ERR_INVALID_ARG_TYPE]解决</title>
+    <link href="https://rw1nd.github.io/2021/06/02/hexo-git-error/"/>
+    <id>https://rw1nd.github.io/2021/06/02/hexo-git-error/</id>
+    <published>2021-06-02T10:46:17.000Z</published>
+    <updated>2021-06-02T10:56:45.076Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天升级了一波系统，xcode command line tools也跟着升级了一波。今天写blog时发现hexo出现了问题。</p><p>先是报</p><p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Library not loaded: /usr/local/opt/icu4c/lib/libicui18n.64.dylib</span><br></pre></td></tr></table></figure></p><p>重新安装了一遍nodejs，之后在deploy时又出现</p><p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError [ERR_INVALID_ARG_TYPE]: The "mode" argument must be integer. Received an instance of Object</span><br></pre></td></tr></table></figure></p><p>查询<a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">hexo文档</a>后发现需要将nodejs版本降回12。</p><p>降回后解决。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前几天升级了一波系统，xcode command line tools也跟着升级了一波。今天写blog时发现hexo出现了问题。&lt;/p&gt;
+&lt;p&gt;先是报&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
+    
+  </entry>
   
   <entry>
     <title>Coq IDE Unset Printing Notations问题</title>
@@ -85,9 +109,9 @@
     
     
     
-    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
-    
     <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
+    
+    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
     
   </entry>
   
@@ -111,9 +135,9 @@
     
     
     
-    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
-    
     <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
+    
+    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
     
     <category term="k3s" scheme="https://rw1nd.github.io/tags/k3s/"/>
     
@@ -173,9 +197,9 @@
     
     
     
-    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
-    
     <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
+    
+    <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
     
     <category term="k8s" scheme="https://rw1nd.github.io/tags/k8s/"/>
     
