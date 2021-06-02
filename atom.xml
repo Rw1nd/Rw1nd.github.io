@@ -175,9 +175,9 @@
     
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
     
-    <category term="k8s" scheme="https://rw1nd.github.io/tags/k8s/"/>
-    
     <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
+    
+    <category term="k8s" scheme="https://rw1nd.github.io/tags/k8s/"/>
     
   </entry>
   
