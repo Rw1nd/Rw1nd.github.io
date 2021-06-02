@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Coq IDE Unset Printing Notations问题 | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<link rel="alternate" href="/atom.xml" title="RWind" type="application/atom+xml">
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">feed</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2021/06/02/coq-print-notations/">Coq IDE Unset Printing Notations问题</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">June 02 2021</p>
+  </section>
+
+  <section class="article-entry">
+    <p>在写Coq的时候经常要使用Notation来定义一些语法糖便于书写，但是在使用<code>Unset Printing Notations</code>时，默认情况下<code>Coq IDE</code>和命令行输出却不一致。</p>
+<p>以<em>Software Foundations</em>中的<a href="https://softwarefoundations.cis.upenn.edu/lf-current/Imp.html" target="_blank" rel="noopener">Imp</a>的fact_in_coq为例。</p>
+<p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Definition</span> fact_in_coq : com :=</span><br><span class="line">  &lt;&#123; </span><br><span class="line">    <span class="type">Z</span> := <span class="type">X</span>;</span><br><span class="line">    <span class="type">Y</span> := <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ~(<span class="type">Z</span> = <span class="number">0</span>) <span class="keyword">do</span></span><br><span class="line">    <span class="type">Y</span> := <span class="type">Y</span> * <span class="type">Z</span>;</span><br><span class="line">    <span class="type">Z</span> := <span class="type">Z</span> - <span class="number">1</span></span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">  &#125;&gt;.</span><br><span class="line">  </span><br><span class="line">  <span class="type">Print</span> fact_in_coq.</span><br></pre></td></tr></table></figure></p>
+<p><code>Coq IDE</code>和<code>coqc</code>打印出来都是：</p>
+<p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fact_in_coq = </span><br><span class="line">&lt;&#123;</span><br><span class="line"><span class="type">Z</span> := <span class="type">X</span>;</span><br><span class="line"><span class="type">Y</span> := <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> ~ <span class="type">Z</span> = <span class="number">0</span> <span class="keyword">do</span> <span class="type">Y</span> := <span class="type">Y</span> * <span class="type">Z</span>; <span class="type">Z</span> := <span class="type">Z</span> - <span class="number">1</span> <span class="keyword">end</span> &#125;&gt;</span><br><span class="line">     : com</span><br></pre></td></tr></table></figure></p>
+<p>但是如果使用<code>Unset Printing Notations</code></p>
+<p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Unset</span> <span class="type">Printing</span> <span class="type">Notations</span>.</span><br><span class="line"><span class="type">Print</span> fact_in_coq.</span><br></pre></td></tr></table></figure></p>
+<p>Coq IDE会提示<code>Set this option from the IDE menu instead</code>，输出的结果仍然不变。</p>
+<p>此时在Coq IDE中将<code>View -&gt; Display notations</code>勾选去掉即可。</p>
+<p>要是使用<code>Set Printing Coercions</code>勾选 <code>View -&gt; Display coercions</code>即可。</p>
+<p>此时IDE和命令行打印都为：</p>
+<p><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fact_in_coq =</span><br><span class="line"><span class="type">CSeq</span> (<span class="type">CAss</span> <span class="type">Z</span> <span class="type">X</span>)</span><br><span class="line">  (<span class="type">CSeq</span> (<span class="type">CAss</span> <span class="type">Y</span> (<span class="type">S</span> <span class="type">O</span>))</span><br><span class="line">     (<span class="type">CWhile</span> (<span class="type">BNot</span> (<span class="type">BEq</span> <span class="type">Z</span> <span class="type">O</span>))</span><br><span class="line">        (<span class="type">CSeq</span> (<span class="type">CAss</span> <span class="type">Y</span> (<span class="type">AMult</span> <span class="type">Y</span> <span class="type">Z</span>)) (<span class="type">CAss</span> <span class="type">Z</span> (<span class="type">AMinus</span> <span class="type">Z</span> (<span class="type">S</span> <span class="type">O</span>))))))</span><br><span class="line">     : com</span><br></pre></td></tr></table></figure></p>
+
+  </section>
+</article>
+
+  
+
+  
+</main>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>k3s搭建 | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<link rel="alternate" href="/atom.xml" title="RWind" type="application/atom+xml">
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">feed</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2021/04/09/k3s-build/">k3s搭建</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 09 2021</p>
+  </section>
+
+  <section class="article-entry">
+    <p>前一段时间给实验室的服务器搞了一套k8s，但是导师说这一套东西太“重”了，于是打算换一个轻量级的。这几天刚好看到k3s这个东西，很轻量，于是尝试一下这套方案。</p>
+<p>搭建非常简单。一条命令直接安装：</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -</span><br></pre></td></tr></table></figure></p>
+<p>配置文件在：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rancher/k3s/k3s.yaml</span><br></pre></td></tr></table></figure></p>
+<p>token在：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/lib/rancher/k3s/server/node-token</span><br></pre></td></tr></table></figure></p>
+<p>参考资料：</p>
+<p><a href="https://k3s.io/" target="_blank" rel="noopener">https://k3s.io/</a></p>
+<p><a href="https://rancher.com/quick-start/" target="_blank" rel="noopener">https://rancher.com/quick-start/</a></p>
+
+  </section>
+</article>
+
+  
+
+  
+</main>
+
+</body>
+</html>
