@@ -90,12 +90,12 @@
 <p>P(x)，含有参数，可表示个体间的性质和关系。</p>
 <h3>量词：</h3>
 <ul>
-<li>全称量词：
+<li><strong>全称量词</strong>：
 <ul>
 <li>$\forall$x, P(x)，对于所有的x</li>
 </ul>
 </li>
-<li>存在量词：
+<li><strong>存在量词</strong>：
 <ul>
 <li>$\exists$ x, P(x)，存在x</li>
 </ul>
@@ -109,16 +109,43 @@
 <li>若$p \rightarrow q$和$p$都为真，那么$q$为真</li>
 </ul>
 <h2>集合</h2>
-<p>集合：X = {x | P(x) }，集合X由所有满足性质P(x)的x组成</p>
+<p><strong>集合</strong>：X = {x | P(x) }，集合X由所有满足性质P(x)的x组成</p>
 <p>笛卡尔积：$X \times Y = { (x,y)|x \in X \land y \in Y }$</p>
-<p>幂集：该集合所有子集组成的集合，$\mathcal{P}(X) = { Y | Y \subseteq X }$</p>
-<p>关系：集合X和Y之间的二元关系是幂集$\mathcal{P}(X \times Y)$的一个元素。如果R是关系$R \subseteq X \times Y$，通常把(x,y)记作xRy。</p>
+<p><strong>幂集</strong>：该集合所有子集组成的集合，$\mathcal{P}(X) = { Y | Y \subseteq X }$</p>
+<p><strong>关系</strong>：集合X和Y之间的二元关系是幂集$\mathcal{P}(X \times Y)$的一个元素。如果R是关系$R \subseteq X \times Y$，通常把(x,y)记作xRy。</p>
 <h3>等价关系：</h3>
 <p>对于集合X上的二元关系R，满足：</p>
 <ul>
 <li>自反性(reflexivity)：$\forall x \in X. xRx$</li>
 <li>对称性(symmetry)：$\forall x,y \in X. xRy \Rightarrow yRx$</li>
 <li>传递性(transitivity)：$\forall x,y,z. xRy \land yRz \Rightarrow xRz$</li>
+</ul>
+<h3>偏序</h3>
+<p><strong>定义1</strong>：定义在X上的关系R，如果它是自反，反对称和传递的，称为偏序。使用符号$(X,\preccurlyeq)$表示一个偏序集。</p>
+<ul>
+<li>自反性： $\forall a \in X, a \preccurlyeq a$</li>
+<li>反对称性：$\forall a,b \in X, a \preccurlyeq b \land b \preccurlyeq a, 则a = b$</li>
+<li>传递性： $\forall a, b, c \in X, a \preccurlyeq b \land b \preccurlyeq c \Rightarrow a \preccurlyeq c$</li>
+</ul>
+<p><strong>定义2</strong>：偏序集$(X,\preccurlyeq)$中的元素a和b，如果$a \preccurlyeq b$或$b \preccurlyeq a$，成为a和b是可比的，如果既没有$a \preccurlyeq b$也没有$b \preccurlyeq a$，那么称a与b是不可比的。</p>
+<p><strong>定义3</strong>：如果偏序集$(X,\preccurlyeq)$中的每对元素都是可比的，则称X为全序集，$\preccurlyeq$称为全序。</p>
+<p><strong>定义4</strong>：对于偏序集$(X,\preccurlyeq)$，如果$\preccurlyeq$是全序，并且X的每一个非空子集都有一个最小元素，就称X为良序集。</p>
+<p><strong>良序归纳原理</strong>：设$X$是一个良序集，如果对所有的$y \in X$，$P(x)$对所有的$x \in X$且$x \prec y$为真，那么$P(x)$对所有的$x \in X$为真。</p>
+<h2>归纳原理</h2>
+<h3>数学归纳法</h3>
+<p>令P(n)为自然数n=0,1,2,...,的一个性质。要证明所有自然数n都满足性质P，只要证明：</p>
+<ul>
+<li>P(0)为真</li>
+<li>对所有的自然数m，如果P(m)为真，则P(m+1)为真</li>
+</ul>
+<p>符号表示：</p>
+<p>$$(P(0) \land \forall m \in N, P(m) \Rightarrow P(m+1)) \Rightarrow \forall n \in N. P(n)$$</p>
+<h3>另一种归纳</h3>
+<p>$$(\forall m \in N, (\forall k &lt; m, Q(k)) \Rightarrow Q(m)) \Rightarrow \forall n \in N, Q(n)$$</p>
+<h3>结构归纳法</h3>
+<ul>
+<li>证明对于递归定义的基础步骤所规定的属于该集合的所有元素成立</li>
+<li>证明如果对于定义的递归步骤中用来构造新元素的每个元素来说命题成立，则对于这些新的元素来说结果成立。</li>
 </ul>
 
   </section>
