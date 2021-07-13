@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>常用数学知识 | RWind</title>
+<link rel="shortcut icon" href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<link rel="alternate" href="/atom.xml" title="RWind" type="application/atom+xml">
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">feed</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2021/07/12/math/">常用数学知识</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 12 2021</p>
+  </section>
+
+  <section class="article-entry">
+    <p>此文记录一下常用的数学知识和符号，遗忘的时候方便回顾。</p>
+<h2>命题逻辑</h2>
+<p>对于命题A和B：</p>
+<ul>
+<li>
+<p>A $ \land$ B，A和B的合取（conjunction）</p>
+</li>
+<li>
+<p>A$\lor$B， A和B的析取（disjunction）</p>
+</li>
+<li>
+<p>A$\rightarrow$ B， A蕴含B</p>
+</li>
+<li>
+<p>A$\Leftrightarrow$B，A等价B</p>
+</li>
+</ul>
+<h3>条件命题逻辑等价式：</h3>
+<ul>
+<li>$p \rightarrow q \equiv \lnot p \lor q$</li>
+<li>$p \rightarrow q \equiv \lnot q \rightarrow \lnot p$</li>
+<li>$p \land q \equiv \lnot (p \rightarrow \lnot q)$</li>
+<li>$\lnot (p \rightarrow q) \equiv p \land \lnot q$</li>
+<li>$(p \rightarrow q) \land (p \rightarrow r) \equiv p \rightarrow (q \land r)$</li>
+<li>$(p \rightarrow r) \land (q \rightarrow r) \equiv (p \land q) \rightarrow r$</li>
+<li>$(p \rightarrow q) \lor (p \rightarrow r) \equiv p \rightarrow (q \lor r)$</li>
+<li>$(p \rightarrow r) \lor (q \rightarrow r) \equiv (p \lor q) \rightarrow r$</li>
+</ul>
+<h3>逻辑等价式</h3>
+<ul>
+<li>分配律：
+<ul>
+<li>$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$</li>
+<li>$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$</li>
+</ul>
+</li>
+<li>德·摩根律：
+<ul>
+<li>$\lnot (p \land q) \equiv \lnot p \lor \lnot q$</li>
+<li>$\lnot (p \lor q) \equiv \lnot p \land \lnot q$</li>
+</ul>
+</li>
+</ul>
+<h3>谓词</h3>
+<p>P(x)，含有参数，可表示个体间的性质和关系。</p>
+<h3>量词：</h3>
+<ul>
+<li>全称量词：
+<ul>
+<li>$\forall$x, P(x)，对于所有的x</li>
+</ul>
+</li>
+<li>存在量词：
+<ul>
+<li>$\exists$ x, P(x)，存在x</li>
+</ul>
+</li>
+<li>$\lnot \forall x P(x) \equiv \exists x \lnot P(x)$</li>
+<li>$\lnot \exists x Q(x) \equiv \forall x \lnot Q(x)$</li>
+</ul>
+<h3>其他</h3>
+<ul>
+<li>$((p \rightarrow q) \land p) \rightarrow q$是永真式</li>
+<li>若$p \rightarrow q$和$p$都为真，那么$q$为真</li>
+</ul>
+<h2>集合</h2>
+<p>集合：X = {x | P(x) }，集合X由所有满足性质P(x)的x组成</p>
+<p>笛卡尔积：$X \times Y = { (x,y)|x \in X \land y \in Y }$</p>
+<p>幂集：该集合所有子集组成的集合，$\mathcal{P}(X) = { Y | Y \subseteq X }$</p>
+<p>关系：集合X和Y之间的二元关系是幂集$\mathcal{P}(X \times Y)$的一个元素。如果R是关系$R \subseteq X \times Y$，通常把(x,y)记作xRy。</p>
+<h3>等价关系：</h3>
+<p>对于集合X上的二元关系R，满足：</p>
+<ul>
+<li>自反性(reflexivity)：$\forall x \in X. xRx$</li>
+<li>对称性(symmetry)：$\forall x,y \in X. xRy \Rightarrow yRx$</li>
+<li>传递性(transitivity)：$\forall x,y,z. xRy \land yRz \Rightarrow xRz$</li>
+</ul>
+
+  </section>
+</article>
+
+  
+
+  
+</main>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

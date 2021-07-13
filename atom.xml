@@ -6,7 +6,7 @@
   <link href="https://rw1nd.github.io/atom.xml" rel="self"/>
   
   <link href="https://rw1nd.github.io/"/>
-  <updated>2021-06-02T10:56:45.076Z</updated>
+  <updated>2021-07-13T06:12:36.433Z</updated>
   <id>https://rw1nd.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用数学知识</title>
+    <link href="https://rw1nd.github.io/2021/07/12/math/"/>
+    <id>https://rw1nd.github.io/2021/07/12/math/</id>
+    <published>2021-07-12T15:06:47.000Z</published>
+    <updated>2021-07-13T06:12:36.433Z</updated>
+    
+    <content type="html"><![CDATA[<p>此文记录一下常用的数学知识和符号，遗忘的时候方便回顾。</p><h2>命题逻辑</h2><p>对于命题A和B：</p><ul><li><p>A $ \land$ B，A和B的合取（conjunction）</p></li><li><p>A$\lor$B， A和B的析取（disjunction）</p></li><li><p>A$\rightarrow$ B， A蕴含B</p></li><li><p>A$\Leftrightarrow$B，A等价B</p></li></ul><h3>条件命题逻辑等价式：</h3><ul><li>$p \rightarrow q \equiv \lnot p \lor q$</li><li>$p \rightarrow q \equiv \lnot q \rightarrow \lnot p$</li><li>$p \land q \equiv \lnot (p \rightarrow \lnot q)$</li><li>$\lnot (p \rightarrow q) \equiv p \land \lnot q$</li><li>$(p \rightarrow q) \land (p \rightarrow r) \equiv p \rightarrow (q \land r)$</li><li>$(p \rightarrow r) \land (q \rightarrow r) \equiv (p \land q) \rightarrow r$</li><li>$(p \rightarrow q) \lor (p \rightarrow r) \equiv p \rightarrow (q \lor r)$</li><li>$(p \rightarrow r) \lor (q \rightarrow r) \equiv (p \lor q) \rightarrow r$</li></ul><h3>逻辑等价式</h3><ul><li>分配律：<ul><li>$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$</li><li>$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$</li></ul></li><li>德·摩根律：<ul><li>$\lnot (p \land q) \equiv \lnot p \lor \lnot q$</li><li>$\lnot (p \lor q) \equiv \lnot p \land \lnot q$</li></ul></li></ul><h3>谓词</h3><p>P(x)，含有参数，可表示个体间的性质和关系。</p><h3>量词：</h3><ul><li>全称量词：<ul><li>$\forall$x, P(x)，对于所有的x</li></ul></li><li>存在量词：<ul><li>$\exists$ x, P(x)，存在x</li></ul></li><li>$\lnot \forall x P(x) \equiv \exists x \lnot P(x)$</li><li>$\lnot \exists x Q(x) \equiv \forall x \lnot Q(x)$</li></ul><h3>其他</h3><ul><li>$((p \rightarrow q) \land p) \rightarrow q$是永真式</li><li>若$p \rightarrow q$和$p$都为真，那么$q$为真</li></ul><h2>集合</h2><p>集合：X = {x | P(x) }，集合X由所有满足性质P(x)的x组成</p><p>笛卡尔积：$X \times Y = { (x,y)|x \in X \land y \in Y }$</p><p>幂集：该集合所有子集组成的集合，$\mathcal{P}(X) = { Y | Y \subseteq X }$</p><p>关系：集合X和Y之间的二元关系是幂集$\mathcal{P}(X \times Y)$的一个元素。如果R是关系$R \subseteq X \times Y$，通常把(x,y)记作xRy。</p><h3>等价关系：</h3><p>对于集合X上的二元关系R，满足：</p><ul><li>自反性(reflexivity)：$\forall x \in X. xRx$</li><li>对称性(symmetry)：$\forall x,y \in X. xRy \Rightarrow yRx$</li><li>传递性(transitivity)：$\forall x,y,z. xRy \land yRz \Rightarrow xRz$</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;此文记录一下常用的数学知识和符号，遗忘的时候方便回顾。&lt;/p&gt;
+&lt;h2&gt;命题逻辑&lt;/h2&gt;
+&lt;p&gt;对于命题A和B：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A $ \land$ B，A和B的合取（conjunction）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A$\lor$B， A</summary>
+      
+    
+    
+    
+    
+    <category term="数学" scheme="https://rw1nd.github.io/tags/数学/"/>
+    
+    <category term="基础" scheme="https://rw1nd.github.io/tags/基础/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo deploy时TypeError [ERR_INVALID_ARG_TYPE]解决</title>
@@ -109,9 +141,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
   </entry>
   
@@ -120,9 +152,9 @@
     <link href="https://rw1nd.github.io/2021/04/09/k3s-build/"/>
     <id>https://rw1nd.github.io/2021/04/09/k3s-build/</id>
     <published>2021-04-09T15:08:03.000Z</published>
-    <updated>2021-04-10T12:04:13.497Z</updated>
+    <updated>2021-07-12T15:06:01.444Z</updated>
     
-    <content type="html"><![CDATA[<p>前一段时间给实验室的服务器搞了一套k8s，但是导师说这一套东西太“重”了，于是打算换一个轻量级的。这几天刚好看到k3s这个东西，很轻量，于是尝试一下这套方案。</p><p>搭建非常简单。一条命令直接安装：</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -</span><br></pre></td></tr></table></figure></p><p>配置文件在：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rancher/k3s/k3s.yaml</span><br></pre></td></tr></table></figure></p><p>token在：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/lib/rancher/k3s/server/node-token</span><br></pre></td></tr></table></figure></p><p>参考资料：</p><p><a href="https://k3s.io/" target="_blank" rel="noopener">https://k3s.io/</a></p><p><a href="https://rancher.com/quick-start/" target="_blank" rel="noopener">https://rancher.com/quick-start/</a></p>]]></content>
+    <content type="html"><![CDATA[<p>前一段时间给实验室的服务器搞了一套k8s，但是导师说这一套东西太“重”了，于是打算换一个轻量级的。这几天刚好看到k3s这个东西，很轻量，于是尝试一下这套方案。</p><p>搭建非常简单。一条命令直接安装：</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -</span><br></pre></td></tr></table></figure></p><p>配置文件在：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rancher/k3s/k3s.yaml</span><br></pre></td></tr></table></figure></p><p>token在：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/lib/rancher/k3s/server/node-token</span><br></pre></td></tr></table></figure></p><hr><p>ps: 最后还是使用了fusioncompute...</p><p>参考资料：</p><p><a href="https://k3s.io/" target="_blank" rel="noopener">https://k3s.io/</a></p><p><a href="https://rancher.com/quick-start/" target="_blank" rel="noopener">https://rancher.com/quick-start/</a></p>]]></content>
     
     
       
@@ -135,9 +167,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
     <category term="k3s" scheme="https://rw1nd.github.io/tags/k3s/"/>
     
@@ -197,9 +229,9 @@
     
     
     
-    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
-    
     <category term="环境" scheme="https://rw1nd.github.io/tags/环境/"/>
+    
+    <category term="折腾" scheme="https://rw1nd.github.io/tags/折腾/"/>
     
     <category term="k8s" scheme="https://rw1nd.github.io/tags/k8s/"/>
     
